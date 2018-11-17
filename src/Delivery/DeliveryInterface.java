@@ -22,9 +22,12 @@ public interface DeliveryInterface {
     String getOrderID();
     void setOrderID(String orderID);
     
+    void setMethod(String method);
+    
     //Operations
     Queue showList();
     Order searchByOrderID();
     void updateOrderStatus(Order or);
+    
     
 }

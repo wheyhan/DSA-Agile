@@ -20,7 +20,9 @@ public class Delivery implements DeliveryInterface {
     
     private String orderID;
     private String state;
-
+    private String method;
+    private String time;
+    
     @Override
     public String getOrderStatus() {
         return state;
@@ -42,9 +44,14 @@ public class Delivery implements DeliveryInterface {
     }
     
     @Override
+    public void setMethod(String method) {
+       this.method = method;
+    }
+    
+    @Override
     public Queue showList() {
         //for (int i = 0; i < 10; i++) {
-            Queue q = order.getAllOrder();
+            Queue q = order.getAllOrder(method);
         //}
         return q;
     }
@@ -62,5 +69,4 @@ public class Delivery implements DeliveryInterface {
     }
 
     
-
 }

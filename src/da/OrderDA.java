@@ -38,7 +38,7 @@ public class OrderDA {
         createConnection();
     }
 
-    public Queue getAllOrder() {
+    public Queue getAllOrder(String method) {
         String queryStr = "SELECT * FROM " + tableName;
         Order order = null;
         Queue<Order> q = new LinkedList<>();
@@ -47,8 +47,10 @@ public class OrderDA {
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 order = new Order(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),
-                        rs.getString(5));
-                if (rs.getString(3).equals("PAID") && rs.getString(5).equals(dateFormat.format(date))) {
+                        rs.getString(5), rs.getString(10));
+                if ((rs.getString(3).equals("PAID") || rs.getString(10).equals("CASH")) &&
+                        rs.getString(5).equals(dateFormat.format(date)) && 
+                        rs.getString(4).equals("ONHOLD") && rs.getString(9).equals(method)) {
                     q.add(order);
                 }
             }
@@ -68,7 +70,7 @@ public class OrderDA {
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
                 order = new Order(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), 
-                rs.getString(5));
+                rs.getString(5), rs.getString(10));
             }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -77,8 +79,10 @@ public class OrderDA {
     }
     
     public void updateOrderStatus(Order order) {
+
         String queryStr = "UPDATE " + tableName + " SET OrderDescript = ?, PaymentStatus = ?, "
-                + "OrderStatus = ?, DateReceived = ? WHERE OrderID = ?";
+                + "OrderStatus = ?, DateReceived = ?, TimeReceived = ? "
+                + "WHERE OrderID = ?";
 
         try {
             stmt = conn.prepareStatement(queryStr);
@@ -86,7 +90,8 @@ public class OrderDA {
             stmt.setString(2, order.getPaymentStatus());
             stmt.setString(3, order.getOrderStatus());
             stmt.setString(4, order.getDateReceived());
-            stmt.setString(5, order.getOrderID());
+            stmt.setString(5, order.getTimeReceived());
+            stmt.setString(6, order.getOrderID());
             stmt.executeUpdate();
 
         } catch (SQLException ex) {
