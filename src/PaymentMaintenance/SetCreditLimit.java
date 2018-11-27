@@ -5,9 +5,12 @@
  */
 package PaymentMaintenance;
 
+import Interface.ImplementCredit;
+import Interface.CreditLimitInterface;
+
 /**
  *
- * @author Lim Chun Haur
+ * @author Chun Haur Lim
  */
 public class SetCreditLimit extends javax.swing.JFrame {
 
@@ -66,13 +69,13 @@ public class SetCreditLimit extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(Add, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(80, 80, 80)
                 .addComponent(TxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Substract, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 59, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Add, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -93,7 +96,7 @@ public class SetCreditLimit extends javax.swing.JFrame {
     private void AddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddActionPerformed
         currentCredit =Double.parseDouble(TxtField.getText());
         credit.setCreditLimit(currentCredit);
-        NewCredit = credit.add(credit);
+        NewCredit = credit.add();
         
         TxtField.setText(NewCredit.toString());
     }//GEN-LAST:event_AddActionPerformed
@@ -101,7 +104,7 @@ public class SetCreditLimit extends javax.swing.JFrame {
     private void SubstractActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubstractActionPerformed
         currentCredit =Double.parseDouble(TxtField.getText());
         credit.setCreditLimit(currentCredit);
-        NewCredit = credit.substract(credit);
+        NewCredit = credit.substract();
         
         TxtField.setText(NewCredit.toString());
     }//GEN-LAST:event_SubstractActionPerformed
