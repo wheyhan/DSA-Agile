@@ -9,75 +9,73 @@ import java.util.Objects;
 
 /**
  *
- * @author USER
+ * @author Ljh,LCH
  */
 public class CatalogOrderDomain {
-
-    @Override
-    public String toString() {
-        return "CatalogOrder{" + "OrderID=" + OrderID + ", CustName=" + CustName + ", CustEmail=" + CustEmail + ", CustContact=" + CustContact + ", DeliverAdd=" + DeliverAdd + ", Quantity=" + Quantity + ", PickUpDate=" + PickUpDate + ", PickUpTime=" + PickUpTime + ", PaymentMEthod=" + PaymentMethod + ", PickUpMethod=" + PickUpMethod + '}';
+    
+ 
+ private String OrderID;
+ private String ProductName; //floral,bouq & flower   (Haur added)
+ private String CustName;
+ private String CustEmail;
+ private String CustContact;
+ private String DeliverAdd;
+ private int Quantity;
+ private String PickUpDate;
+ private String PickUpTime;
+ private String PaymentMethod;
+ private String PickUpMethod;
+  private String ProductID;
+         
+    public CatalogOrderDomain() {
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 89 * hash + Objects.hashCode(this.OrderID);
-        hash = 89 * hash + Objects.hashCode(this.CustName);
-        hash = 89 * hash + Objects.hashCode(this.CustEmail);
-        hash = 89 * hash + Objects.hashCode(this.CustContact);
-        hash = 89 * hash + Objects.hashCode(this.DeliverAdd);
-        hash = 89 * hash + this.Quantity;
-        hash = 89 * hash + Objects.hashCode(this.PickUpDate);
-        hash = 89 * hash + Objects.hashCode(this.PickUpTime);
-        hash = 89 * hash + Objects.hashCode(this.PaymentMethod);
-        hash = 89 * hash + Objects.hashCode(this.PickUpMethod);
-        return hash;
+    //Haur added
+    public CatalogOrderDomain( String OrderID,String ProductName, String CustName, String CustEmail, String CustContact, String DeliverAdd, int Quantity, String PickUpDate, String PickUpTime, String PickUpMethod) {
+        
+        this.OrderID = OrderID;
+        this.ProductName = ProductName;
+        this.CustName = CustName;
+        this.CustEmail = CustEmail;
+        this.CustContact = CustContact;
+        this.DeliverAdd = DeliverAdd;
+        this.Quantity = Quantity;
+        this.PickUpDate = PickUpDate;
+        this.PickUpTime = PickUpTime;
+        this.PickUpMethod = PickUpMethod;
+    }
+    //ljh
+        public CatalogOrderDomain(String OrderID, String CustName, String CustEmail, String CustContact, String DeliverAdd, int Quantity, String PickUpDate, String PickUpTime, String PaymentMethod, String PickUpMethod, String ProductID) {
+        this.OrderID = OrderID;
+        this.CustName = CustName;
+        this.CustEmail = CustEmail;
+        this.CustContact = CustContact;
+        this.DeliverAdd = DeliverAdd;
+        this.Quantity = Quantity;
+        this.PickUpDate = PickUpDate;
+        this.PickUpTime = PickUpTime;
+        this.PaymentMethod = PaymentMethod;
+        this.PickUpMethod = PickUpMethod;
+        this.ProductID = ProductID;
+    }
+    
+    
+    public CatalogOrderDomain(String OrderID, String CustName, String CustEmail, String CustContact, String DeliverAdd, int Quantity, String PickUpDate, String PickUpTime, String PaymentMethod, String PickUpMethod) {
+        this.OrderID = OrderID;
+        this.CustName = CustName;
+        this.CustEmail = CustEmail;
+        this.CustContact = CustContact;
+        this.DeliverAdd = DeliverAdd;
+        this.Quantity = Quantity;
+        this.PickUpDate = PickUpDate;
+        this.PickUpTime = PickUpTime;
+        this.PaymentMethod = PaymentMethod;
+        this.PickUpMethod = PickUpMethod;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final CatalogOrderDomain other = (CatalogOrderDomain) obj;
-        if (this.Quantity != other.Quantity) {
-            return false;
-        }
-        if (!Objects.equals(this.OrderID, other.OrderID)) {
-            return false;
-        }
-        if (!Objects.equals(this.CustName, other.CustName)) {
-            return false;
-        }
-        if (!Objects.equals(this.CustEmail, other.CustEmail)) {
-            return false;
-        }
-        if (!Objects.equals(this.CustContact, other.CustContact)) {
-            return false;
-        }
-        if (!Objects.equals(this.DeliverAdd, other.DeliverAdd)) {
-            return false;
-        }
-        if (!Objects.equals(this.PickUpDate, other.PickUpDate)) {
-            return false;
-        }
-        if (!Objects.equals(this.PickUpTime, other.PickUpTime)) {
-            return false;
-        }
-        if (!Objects.equals(this.PaymentMethod, other.PaymentMethod)) {
-            return false;
-        }
-        if (!Objects.equals(this.PickUpMethod, other.PickUpMethod)) {
-            return false;
-        }
-        return true;
-    }
+    
+
+    
 
     public String getOrderID() {
         return OrderID;
@@ -87,6 +85,14 @@ public class CatalogOrderDomain {
         this.OrderID = OrderID;
     }
 
+    public String getProductName() {//Haur added
+        return ProductName;
+    }
+
+    public void setProductName(String ProductName) {//Haur Added
+        this.ProductName = ProductName;
+    }
+    
     public String getCustName() {
         return CustName;
     }
@@ -158,32 +164,79 @@ public class CatalogOrderDomain {
     public void setPickUpMethod(String PickUpMethod) {
         this.PickUpMethod = PickUpMethod;
     }
-
-    public CatalogOrderDomain(String OrderID, String CustName, String CustEmail, String CustContact, String DeliverAdd, int Quantity, String PickUpDate, String PickUpTime, String PaymentMethod, String PickUpMethod) {
-        this.OrderID = OrderID;
-        this.CustName = CustName;
-        this.CustEmail = CustEmail;
-        this.CustContact = CustContact;
-        this.DeliverAdd = DeliverAdd;
-        this.Quantity = Quantity;
-        this.PickUpDate = PickUpDate;
-        this.PickUpTime = PickUpTime;
-        this.PaymentMethod = PaymentMethod;
-        this.PickUpMethod = PickUpMethod;
+    
+    public String getProductID() {
+        return ProductID;
     }
- private String OrderID;
- private String CustName;
- private String CustEmail;
- private String CustContact;
- private String DeliverAdd;
- private int Quantity;
- private String PickUpDate;
- private String PickUpTime;
- private String PaymentMethod;
- private String PickUpMethod;
+
+    public void setProductID(String ProductID) {
+        this.ProductID = ProductID;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 89 * hash + Objects.hashCode(this.OrderID);
+        hash = 89 * hash + Objects.hashCode(this.CustName);
+        hash = 89 * hash + Objects.hashCode(this.CustEmail);
+        hash = 89 * hash + Objects.hashCode(this.CustContact);
+        hash = 89 * hash + Objects.hashCode(this.DeliverAdd);
+        hash = 89 * hash + this.Quantity;
+        hash = 89 * hash + Objects.hashCode(this.PickUpDate);
+        hash = 89 * hash + Objects.hashCode(this.PickUpTime);
+        hash = 89 * hash + Objects.hashCode(this.PaymentMethod);
+        hash = 89 * hash + Objects.hashCode(this.PickUpMethod);
+        hash = 89 * hash + Objects.hashCode(this.ProductID);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final CatalogOrderDomain other = (CatalogOrderDomain) obj;
+        if (this.Quantity != other.Quantity) {
+            return false;
+        }
+        if (!Objects.equals(this.OrderID, other.OrderID)) {
+            return false;
+        }
+        if (!Objects.equals(this.CustName, other.CustName)) {
+            return false;
+        }
+        if (!Objects.equals(this.CustEmail, other.CustEmail)) {
+            return false;
+        }
+        if (!Objects.equals(this.CustContact, other.CustContact)) {
+            return false;
+        }
+        if (!Objects.equals(this.DeliverAdd, other.DeliverAdd)) {
+            return false;
+        }
+        if (!Objects.equals(this.PickUpDate, other.PickUpDate)) {
+            return false;
+        }
+        if (!Objects.equals(this.PickUpTime, other.PickUpTime)) {
+            return false;
+        }
+        if (!Objects.equals(this.PaymentMethod, other.PaymentMethod)) {
+            return false;
+        }
+        if (!Objects.equals(this.PickUpMethod, other.PickUpMethod)) {
+            return false;
+        }
+        return true;
+    }
  
-    public CatalogOrderDomain() {
+public String toString() {
+        return "CatalogOrder{" + "OrderID=" + OrderID + ", CustName=" + CustName + ", CustEmail=" + CustEmail + ", CustContact=" + CustContact + ", DeliverAdd=" + DeliverAdd + ", Quantity=" + Quantity + ", PickUpDate=" + PickUpDate + ", PickUpTime=" + PickUpTime + ", PaymentMEthod=" + PaymentMethod + ", PickUpMethod=" + PickUpMethod + '}';
     }
-
 
 }

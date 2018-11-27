@@ -16,38 +16,20 @@ public class Order {
     private String orderDescript;
     private String paymentStatus;
     private String orderStatus;
-    private String estimateReceived;
-    private String method;
     private String dateReceived;
-    private String timeReceived;
 
     public Order(){
         
     }
 
-    public Order(String orderID, String orderDescript, String paymentStatus, 
-            String orderStatus, String estimateReceived, String method) {
+    public Order(String orderID, String orderDescript, String paymentStatus, String orderStatus, String dateReceived) {
         this.orderID = orderID;
         this.orderDescript = orderDescript;
         this.paymentStatus = paymentStatus;
         this.orderStatus = orderStatus;
-        this.estimateReceived = estimateReceived;
-        this.method = method;
+        this.dateReceived = dateReceived;
     }
 
-    public String getMethod() {
-        return method;
-    }
-
-    public String getDateReceived() {
-        return dateReceived;
-    }
-
-    public String getTimeReceived() {
-        return timeReceived;
-    }
-
-    
     public String getOrderID() {
         return orderID;
     }
@@ -64,23 +46,10 @@ public class Order {
         return orderStatus;
     }
 
-    public String getEstimateReceived() {
-        return estimateReceived;
+    public String getDateReceived() {
+        return dateReceived;
     }
 
-    public void setMethod(String method) {
-        this.method = method;
-    }
-
-    public void setDateReceived(String dateReceived) {
-        this.dateReceived = dateReceived;
-    }
-
-    public void setTimeReceived(String timeReceived) {
-        this.timeReceived = timeReceived;
-    }
-
-    
     public void setOrderID(String orderID) {
         this.orderID = orderID;
     }
@@ -97,8 +66,8 @@ public class Order {
         this.orderStatus = orderStatus;
     }
 
-    public void setEstimateReceived(String estimateReceived) {
-        this.estimateReceived = estimateReceived;
+    public void setDateReceived(String dateReceived) {
+        this.dateReceived = dateReceived;
     }
 
     @Override
@@ -108,7 +77,7 @@ public class Order {
         hash = 31 * hash + Objects.hashCode(this.orderDescript);
         hash = 31 * hash + Objects.hashCode(this.paymentStatus);
         hash = 31 * hash + Objects.hashCode(this.orderStatus);
-        hash = 31 * hash + Objects.hashCode(this.estimateReceived);
+        hash = 31 * hash + Objects.hashCode(this.dateReceived);
         return hash;
     }
 
@@ -136,7 +105,7 @@ public class Order {
         if (!Objects.equals(this.orderStatus, other.orderStatus)) {
             return false;
         }
-        if (!Objects.equals(this.estimateReceived, other.estimateReceived)) {
+        if (!Objects.equals(this.dateReceived, other.dateReceived)) {
             return false;
         }
         return true;
@@ -144,12 +113,7 @@ public class Order {
 
     @Override
     public String toString() {
-        return "OrderID : " + orderID + 
-                "\nOrder Description : " + orderDescript + 
-                "\nPayment Status : " + paymentStatus + 
-                "\nPayment Method : " + method +
-                "\nOrder Status : " + orderStatus + 
-                "\nDelivery Date : " + estimateReceived + "\n\n";
+        return "Order{" + "orderID=" + orderID + ", orderDescript=" + orderDescript + ", paymentStatus=" + paymentStatus + ", orderStatus=" + orderStatus + ", dateReceived=" + dateReceived + '}';
     }
    
 }

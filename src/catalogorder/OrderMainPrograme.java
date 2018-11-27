@@ -39,8 +39,10 @@ public class OrderMainPrograme {
         String PaymentMethod = scan.nextLine();
         System.out.println("Enter Pick-Up Method :");
         String PickUpMethod = scan.nextLine();
+        System.out.println("Enter ProductID :");
+        String ProductID = scan.nextLine();
         
-        catalog.setOrder(new CatalogOrderDomain(OrderID, CustName, CustEmail, CustContact, DeliverAddress, Quantity, PickUpDate, PickUpTime, PaymentMethod, PickUpMethod));
+        catalog.setOrder(new CatalogOrderDomain(OrderID, CustName, CustEmail, CustContact, DeliverAddress, Quantity, PickUpDate, PickUpTime, PaymentMethod, PickUpMethod, ProductID));
 
         boolean answer = catalog.insertOrder();
         

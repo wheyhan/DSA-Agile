@@ -31,7 +31,7 @@ public class CatalogOrderDA {
     Date date = new Date();
   
     public boolean AddOrder(CatalogOrderDomain order){
-        String insertStr = "INSERT INTO " + tableName + " VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String insertStr = "INSERT INTO " + tableName + " VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         boolean answer = false;
         try {
             stmt = conn.prepareStatement(insertStr);
@@ -45,6 +45,7 @@ public class CatalogOrderDA {
             stmt.setString(8, order.getPickUpTime());
             stmt.setString(9, order.getPaymentMethod());
             stmt.setString(10, order.getPickUpMethod());
+            stmt.setString(11, order.getProductID());
             stmt.executeUpdate();
             answer = true;
         } catch (SQLException ex) {
