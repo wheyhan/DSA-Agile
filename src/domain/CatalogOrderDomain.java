@@ -25,7 +25,7 @@ public class CatalogOrderDomain {
  private String PickUpTime;
  private String PaymentMethod;
  private String PickUpMethod;
- 
+  private String ProductID;
          
     public CatalogOrderDomain() {
     }
@@ -44,7 +44,20 @@ public class CatalogOrderDomain {
         this.PickUpTime = PickUpTime;
         this.PickUpMethod = PickUpMethod;
     }
-    
+    //ljh
+        public CatalogOrderDomain(String OrderID, String CustName, String CustEmail, String CustContact, String DeliverAdd, int Quantity, String PickUpDate, String PickUpTime, String PaymentMethod, String PickUpMethod, String ProductID) {
+        this.OrderID = OrderID;
+        this.CustName = CustName;
+        this.CustEmail = CustEmail;
+        this.CustContact = CustContact;
+        this.DeliverAdd = DeliverAdd;
+        this.Quantity = Quantity;
+        this.PickUpDate = PickUpDate;
+        this.PickUpTime = PickUpTime;
+        this.PaymentMethod = PaymentMethod;
+        this.PickUpMethod = PickUpMethod;
+        this.ProductID = ProductID;
+    }
     
     
     public CatalogOrderDomain(String OrderID, String CustName, String CustEmail, String CustContact, String DeliverAdd, int Quantity, String PickUpDate, String PickUpTime, String PaymentMethod, String PickUpMethod) {
@@ -76,7 +89,7 @@ public class CatalogOrderDomain {
         return ProductName;
     }
 
-    public void setProductID(String ProductName) {//Haur Added
+    public void setProductName(String ProductName) {//Haur Added
         this.ProductName = ProductName;
     }
     
@@ -151,6 +164,14 @@ public class CatalogOrderDomain {
     public void setPickUpMethod(String PickUpMethod) {
         this.PickUpMethod = PickUpMethod;
     }
+    
+    public String getProductID() {
+        return ProductID;
+    }
+
+    public void setProductID(String ProductID) {
+        this.ProductID = ProductID;
+    }
 
     @Override
     public int hashCode() {
@@ -165,6 +186,7 @@ public class CatalogOrderDomain {
         hash = 89 * hash + Objects.hashCode(this.PickUpTime);
         hash = 89 * hash + Objects.hashCode(this.PaymentMethod);
         hash = 89 * hash + Objects.hashCode(this.PickUpMethod);
+        hash = 89 * hash + Objects.hashCode(this.ProductID);
         return hash;
     }
 
