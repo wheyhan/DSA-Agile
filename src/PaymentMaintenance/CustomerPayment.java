@@ -291,3 +291,4 @@ public class CustomerPayment extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
+//

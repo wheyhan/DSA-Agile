@@ -7,7 +7,7 @@ package Interface;
 
 /**
  *
- * @author Chun Haur Lim
+ * @author LIM CHUN HAUR
  */
 public interface CustomerPayInterface {
     

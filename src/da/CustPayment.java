@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Chun Haur Lim
+ * @author LIM CHUN HAUR
  */
 public class CustPayment {
     private String host = "jdbc:derby://localhost:1527/flowershopdb";

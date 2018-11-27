@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  *
- * @author Chun Haur Lim
+ * @author LIM CHUN HAUR
  */
 public class ImplementCustPay implements CustomerPayInterface{
     
