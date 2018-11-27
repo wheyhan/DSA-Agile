@@ -28,11 +28,12 @@ public class First {
         
         do {
             System.out.println("");
-            System.out.println("PRODUCT LIST");
+            System.out.println("Menu");
             System.out.println("***********************");
             System.out.println("1. Fresh Flower");
             System.out.println("2. Bouquets");
             System.out.println("3. Floral Arrangement");
+            System.out.println("4. Monthly Promotion");
             System.out.println("***********************");
             
             System.out.print("Please Enter Your Selection :");
@@ -49,8 +50,10 @@ public class First {
                 case 3:
                     System.out.println(catFlower.showAllFloral());
                     break;
+                case 4:
+                    System.out.println(catFlower.showAllPromotion());
                 default:
-                    System.out.println("Please Re-enter your SELECTION!");
+                    System.out.println("\nPlease Re-enter your SELECTION!");
                     break;
             }
 

@@ -28,7 +28,7 @@ public class CatalogDA {
     private String sqlQueryStr = "SELECT * from " + tableName;
     private Connection conn;
     private PreparedStatement stmt;
-    CatalogFlow catalog = new CatalogFlow();
+    CatalogFlow catalogFlow = new CatalogFlow();
     private ResultSet rs;
 
     public CatalogDA() {
@@ -36,74 +36,75 @@ public class CatalogDA {
     }
     
    
-//    public void addRecord(CatalogFlow cat) {
-//        
-//         String insertStr="INSERT INTO "+tableName+" VALUES(?,?,?)";
-//         try{         
-//         stmt=conn.prepareStatement(insertStr);
-//                   stmt.setString(1, bb.getBbId());
-//                    stmt.setString(2,bb.getBtype());
-//                    stmt.setInt(3,bb.getQuantity());
-//            
-//                    
-//                   stmt.executeUpdate();
-//    }catch(SQLException ex){
-//        JOptionPane.showMessageDialog(null, ex.getMessage(),"ERROR",JOptionPane.ERROR_MESSAGE);
-//    }
-//    }
+    public void addRecord(CatalogFlow catalogFlow) {
+        
+         String insertStr="INSERT INTO "+tableName+" VALUES(?,?,?,?,?)";
+         try{         
+         stmt=conn.prepareStatement(insertStr);
+                   stmt.setString(1, catalogFlow.getFlower_id());
+                    stmt.setString(2, catalogFlow.getFlower_name());
+                    stmt.setString(3, catalogFlow.getFlower_description());
+                    stmt.setString(4, catalogFlow.getFlower_price());
+                    stmt.setString(5, catalogFlow.getFlower_status());
+                   stmt.executeUpdate();
+    }catch(SQLException ex){
+        JOptionPane.showMessageDialog(null, ex.getMessage(),"ERROR",JOptionPane.ERROR_MESSAGE);
+    }
+    }
     
-//     public CatalogFlow getRecord(String id) {
-//        String queryStr = "SELECT * FROM " + tableName + " FLOWER_ID = ?";
-//        CatalogFlow ctl = null;
-//        ResultSet rs = null;
-//        try {
-//            stmt = conn.prepareStatement(queryStr);
-//            stmt.setString(1, id);
-//            
-//            rs = stmt.executeQuery();
-//            if(rs.next()){
-//            ctl = new CatalogFlow(id, rs.getString("flower_name"), rs.getString("flower_description"),rs.getString("flower_price"));
-//            }
-//            
-//    
-//        } catch (SQLException ex) {
-//            JOptionPane.showMessageDialog(null, ex.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
-//        }
-//        return ctl;
-//    }
        public Queue getCurrentRecord() {
-        CatalogFlow catalog = null;
+        CatalogFlow catalogFlow = null;
         Queue<CatalogFlow> queue = new LinkedList<>();
         try {
             stmt = conn.prepareStatement(sqlQueryStr);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
-            catalog = new CatalogFlow(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4));
-            queue.add(catalog);
+            catalogFlow = new CatalogFlow(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getString(5));
+            queue.add(catalogFlow);
             }
         } catch (SQLException ex) {
             ex.getMessage();
         }
         return queue;
     }
-//    public void UpdateRecord(BloodBank bloodbank) {
-//        
-//         String updateStr="UPDATE "+tableName+ " SET BLOOD_TYPE =? ,BLOOD_QUANTITY = ? WHERE BLOOD_BANK_ID = ? ";
-//         try{         
-//         stmt=conn.prepareStatement(updateStr);
-//
-//                    stmt.setString(3,bloodbank.getBbId());
-//                    stmt.setString(1,bloodbank.getBtype());
-//                    stmt.setInt(2,bloodbank.getQuantity());                 
-//                    stmt.executeUpdate();
-//                   
-//    }catch(SQLException ex){
-//        JOptionPane.showMessageDialog(null, ex.getMessage(),"ERROR",JOptionPane.ERROR_MESSAGE);
-//    }
-//    }
+
+       public void updateRecord(CatalogFlow catalogFlow) {
+        
+         String updateStr="UPDATE "+tableName+ " SET FLOWER_DESCRIPTION = ? ,FLOWER_PRICE =? ,FLOWER_STATUS = ? WHERE FLOWER_ID=?";
+         try{         
+         stmt=conn.prepareStatement(updateStr);
+                    stmt.setString(1,catalogFlow.getFlower_description());
+                    stmt.setString(2,catalogFlow.getFlower_price());
+                    stmt.setString(3,catalogFlow.getFlower_status());
+                    
+                    stmt.executeUpdate();
+                   
+    }catch(SQLException ex){
+        JOptionPane.showMessageDialog(null, ex.getMessage(),"ERROR",JOptionPane.ERROR_MESSAGE);
+    }
+    }
     
+        public Queue getRecord(String id) {
+        String queryStr = "SELECT * FROM " + tableName + " FLOWER_ID = ?";
+        CatalogFlow catalogFlow = null;
+        Queue<CatalogFlow> queue = new LinkedList<>();
+        ResultSet rs = null;
+        try {
+            stmt = conn.prepareStatement(queryStr);
+            stmt.setString(1, id);
+            
+            rs = stmt.executeQuery();
+            if(rs.next()){
+            catalogFlow = new CatalogFlow(id, rs.getString("flower_name"), rs.getString("flower_description"),rs.getString("flower_price"),rs.getString("flower_status"));
+            }
+            
     
-    
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        return queue;
+    }
+       
     private void createConnection() {
         try {
             conn = DriverManager.getConnection(host, user, password);

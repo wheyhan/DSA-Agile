@@ -15,17 +15,16 @@ public class CatalogFloral {
         private String floral_id;
         private String floral_name;
         private String floral_description;
-        private String floral_price;
-        
+       
         public CatalogFloral(){
     
 }
 
-    public CatalogFloral(String floral_id, String floral_name, String floral_description, String floral_price) {
+    public CatalogFloral(String floral_id, String floral_name, String floral_description ) {
         this.floral_id = floral_id;
         this.floral_name = floral_name;
         this.floral_description = floral_description;
-        this.floral_price = floral_price;
+       
     }
 
     public String getFloral_id() {
@@ -52,13 +51,7 @@ public class CatalogFloral {
         this.floral_description = floral_description;
     }
 
-    public String getFloral_price() {
-        return floral_price;
-    }
-
-    public void setFloral_price(String floral_price) {
-        this.floral_price = floral_price;
-    }
+    
 
     @Override
     public int hashCode() {
@@ -66,7 +59,7 @@ public class CatalogFloral {
         hash = 97 * hash + Objects.hashCode(this.floral_id);
         hash = 97 * hash + Objects.hashCode(this.floral_name);
         hash = 97 * hash + Objects.hashCode(this.floral_description);
-        hash = 97 * hash + Objects.hashCode(this.floral_price);
+        
         return hash;
     }
 
@@ -91,15 +84,13 @@ public class CatalogFloral {
         if (!Objects.equals(this.floral_description, other.floral_description)) {
             return false;
         }
-        if (!Objects.equals(this.floral_price, other.floral_price)) {
-            return false;
-        }
+        
         return true;
     }
 
     @Override
     public String toString() {
-        return "Catalog Floral: " + "Floral ID=" + floral_id + ", Floral Name=" + floral_name + ", Floral Description=" + floral_description + ", Floral Price=" + floral_price;
+        return "\n"+ "Floral ID = " + floral_id + "\n" +"Floral Name = " + floral_name + "\n" +"Floral Description = " + floral_description + "\n\n" ;
     }
 
 }

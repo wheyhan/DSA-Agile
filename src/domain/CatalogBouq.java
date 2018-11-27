@@ -17,15 +17,17 @@ public class CatalogBouq {
         private String bouquets_name;
         private String bouquets_description;
         private String bouquets_price;
+        private String bouquets_status;
 
           public CatalogBouq() {
     }
 
-    public CatalogBouq(String bouquets_id, String bouquets_name, String bouquets_description, String bouquets_price) {
+    public CatalogBouq(String bouquets_id, String bouquets_name, String bouquets_description, String bouquets_price, String bouquets_status) {
         this.bouquets_id = bouquets_id;
         this.bouquets_name = bouquets_name;
         this.bouquets_description = bouquets_description;
         this.bouquets_price = bouquets_price;
+        this.bouquets_status = bouquets_status;
     }
 
     public String getBouquets_id() {
@@ -60,13 +62,22 @@ public class CatalogBouq {
         this.bouquets_price = bouquets_price;
     }
 
+    public String getBouquets_status() {
+        return bouquets_status;
+    }
+
+    public void setBouquets_status(String bouquets_status) {
+        this.bouquets_status = bouquets_status;
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 53 * hash + Objects.hashCode(this.bouquets_id);
-        hash = 53 * hash + Objects.hashCode(this.bouquets_name);
-        hash = 53 * hash + Objects.hashCode(this.bouquets_description);
-        hash = 53 * hash + Objects.hashCode(this.bouquets_price);
+        hash = 79 * hash + Objects.hashCode(this.bouquets_id);
+        hash = 79 * hash + Objects.hashCode(this.bouquets_name);
+        hash = 79 * hash + Objects.hashCode(this.bouquets_description);
+        hash = 79 * hash + Objects.hashCode(this.bouquets_price);
+        hash = 79 * hash + Objects.hashCode(this.bouquets_status);
         return hash;
     }
 
@@ -94,12 +105,17 @@ public class CatalogBouq {
         if (!Objects.equals(this.bouquets_price, other.bouquets_price)) {
             return false;
         }
+        if (!Objects.equals(this.bouquets_status, other.bouquets_status)) {
+            return false;
+        }
         return true;
     }
 
+    
+
     @Override
     public String toString() {
-        return "Catalog Bouquet:  " + "Bouquet ID=" + bouquets_id + ", Bouquet Name=" + bouquets_name + ", Bouquet Description=" + bouquets_description + ", Bouquet Price=" + bouquets_price;
+        return "\n"+ "Bouquet ID = " + bouquets_id + "\n" + "Bouquet Name = " + bouquets_name + "\n" +"Bouquet Description = " + bouquets_description + "\n" +"Bouquet Price = " + bouquets_price+ "\n" +"Bouquet Status = " + bouquets_status + "\n\n";
     }
           
 }

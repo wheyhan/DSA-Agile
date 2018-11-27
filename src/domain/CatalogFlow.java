@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package domain;
-//import da.CatalogDA;
+import da.CatalogDA;
 import java.util.Objects;
 
 /**
@@ -17,15 +17,17 @@ public class CatalogFlow{
         private String flower_name;
         private String flower_description;
         private String flower_price;
+        private String flower_status;
 
           public CatalogFlow() {
     }
 
-    public CatalogFlow(String flower_id, String flower_name, String flower_description, String flower_price) {
+    public CatalogFlow(String flower_id, String flower_name, String flower_description, String flower_price, String flower_status) {
         this.flower_id = flower_id;
         this.flower_name = flower_name;
         this.flower_description = flower_description;
         this.flower_price = flower_price;
+        this.flower_status = flower_status;
     }
 
     public String getFlower_id() {
@@ -60,13 +62,22 @@ public class CatalogFlow{
         this.flower_price = flower_price;
     }
 
+    public String getFlower_status() {
+        return flower_status;
+    }
+
+    public void setFlower_status(String flower_status) {
+        this.flower_status = flower_status;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 53 * hash + Objects.hashCode(this.flower_id);
-        hash = 53 * hash + Objects.hashCode(this.flower_name);
-        hash = 53 * hash + Objects.hashCode(this.flower_description);
-        hash = 53 * hash + Objects.hashCode(this.flower_price);
+        int hash = 3;
+        hash = 23 * hash + Objects.hashCode(this.flower_id);
+        hash = 23 * hash + Objects.hashCode(this.flower_name);
+        hash = 23 * hash + Objects.hashCode(this.flower_description);
+        hash = 23 * hash + Objects.hashCode(this.flower_price);
+        hash = 23 * hash + Objects.hashCode(this.flower_status);
         return hash;
     }
 
@@ -94,12 +105,17 @@ public class CatalogFlow{
         if (!Objects.equals(this.flower_price, other.flower_price)) {
             return false;
         }
+        if (!Objects.equals(this.flower_status, other.flower_status)) {
+            return false;
+        }
         return true;
     }
 
+   
+
     @Override
     public String toString() {
-        return "Catalog Flower: " + "Flower ID=" + flower_id + ", Flower Name=" + flower_name + ", Flower Description=" + flower_description + ", Flower Price=" + flower_price ;
+        return "\n"+ "Flower ID = " + flower_id +  "\n" + "Flower Name = " + flower_name +  "\n"+"Flower Description = " + flower_description + "\n" +"Flower Price = " + flower_price+ "\n" +"Flower Status = " + flower_status + "\n\n" ;
     }
         
 
