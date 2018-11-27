@@ -9,6 +9,6 @@ package da;
  *
  * @author Chun Haur Lim
  */
-public class CorCustDA {
+public class CorPayment {
     
 }

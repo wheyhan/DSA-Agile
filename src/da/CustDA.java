@@ -8,7 +8,7 @@ package da;
 
 /**
  *
- * @author chbee
+ * @author Chun Haur Lim
  */
 public class CustDA {
    

@@ -7,7 +7,7 @@ package domain;
 
 /**
  *
- * @author chbee
+ * @author Chun Haur Lim
  */
 public class Buyer {
     private String id;
