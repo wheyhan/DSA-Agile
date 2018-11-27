@@ -6,6 +6,10 @@
 package limjianhaoparta;
 
 import java.util.Queue;
+import domain.CatalogFlow;
+import domain.CatalogBouq;
+import domain.Promotion;
+import domain.CatalogFloral;
 
 /**
  *
@@ -16,4 +20,9 @@ public interface CatalogInterface {
     Queue showAllFlower();
     Queue showAllBouq();
     Queue showAllFloral();
+    Queue showAllPromotion();
+    void addRecord(CatalogFlow catalogFlow);
+    void addRecord(CatalogBouq catalogBouq);
+    void addRecord(Promotion promo);
+    void addRecord(CatalogFloral catalogFloral);
 }
