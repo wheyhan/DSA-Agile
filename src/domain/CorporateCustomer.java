@@ -13,13 +13,28 @@ public class CorporateCustomer extends Buyer{
     
     private String CompanyName;
     private String CompanyAddress;
-   
+    private double CreditLimit;
+    
     public CorporateCustomer() {
        
     }
-    public CorporateCustomer(String id, String name, String ic) {
+    
+    public CorporateCustomer(String id, String name, String ic, String CompanyName, String CompanyAddress, double CreditLimit) {
         super(id, name, ic);
+        this.CompanyName = CompanyName;
+        this.CompanyAddress = CompanyAddress;
+        this.CreditLimit = CreditLimit;
+        
     }
+
+    
+    public CorporateCustomer(String id, String name, String ic,String pwd, String CompanyName, String CompanyAddress, double CreditLimit) {
+        super(id, name, ic, pwd);
+        this.CompanyName = CompanyName;
+        this.CompanyAddress = CompanyAddress;
+        this.CreditLimit = CreditLimit;
+    }
+   
 
     public String getCompanyName() {
         return CompanyName;
@@ -36,6 +51,21 @@ public class CorporateCustomer extends Buyer{
     public void setCompanyAddress(String CompanyAddress) {
         this.CompanyAddress = CompanyAddress;
     }
+
+    public double getCreditLimit() {
+        return CreditLimit;
+    }
+
+    public void setCreditLimit(double CreditLimit) {
+        this.CreditLimit = CreditLimit;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString()+"\nCompanyName: "+CompanyName+"\nAddress: "+CompanyAddress+"\nCreditLimit: "+CreditLimit;
+    }
+
+    
     
     
     
