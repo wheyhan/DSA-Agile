@@ -21,5 +21,5 @@ public interface OrderInterface<T> {
     String retrieveOrderIdDelivery(LinkedList list);
     boolean insertBouquetOrders(LinkedList list);
     boolean insertFlowerOrders(LinkedList list);
-    void setOrder(CatalogOrderDomain order);
+
 }

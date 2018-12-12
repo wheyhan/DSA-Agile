@@ -28,9 +28,9 @@ public class CatalogOrder<T> implements OrderInterface<T> {
 
     @Override
     public void setOrder(CatalogOrderDomain order) {
-        this.order = order;
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    
     @Override
     public String retrieveFlower(T prodID) {
         String check = "";
