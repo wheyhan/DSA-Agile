@@ -5,37 +5,27 @@
  */
 package limjianhaoparta;
 
-import domain.CatalogFlow;
-import da.CatalogFlowerDA;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Queue;
 import java.util.Scanner;
 
 /**
  *
  * @author JianHao
  */
-public class First {
+public class CatalogMenu {
     
+    public static void main(String[]args){
     
-     private static final CatalogInterface catFlower = new Catalog();
-     
-     public static void View() {
-         
-         Scanner scanner = new Scanner(System.in);
+          Scanner scanner = new Scanner(System.in);
 
         int select;
         
         do {
             System.out.println("");
-            System.out.println("View Menu");
+            System.out.println("Catalaog Menu");
             System.out.println("***********************");
-            System.out.println("1. Fresh Flower");
-            System.out.println("2. Bouquets");
-            System.out.println("3. Floral Arrangement");
-            System.out.println("4. Monthly Promotion");
+            System.out.println("1.Add New Product/Promotion");
+            System.out.println("2.View All Product/Promotion");
+            System.out.println("3.Update Product/Promotion Information");
             System.out.println("***********************");
             
             System.out.print("Please Enter Your Selection :");
@@ -44,17 +34,17 @@ public class First {
             select= scanner.nextInt();
             switch (select) {
                 case 1:
-                    System.out.println(catFlower.showAllFlower());
+                    AddProduct addProduct = new AddProduct();
+                    addProduct.AddProduct();
                     break;
                 case 2: 
-                    System.out.println(catFlower.showAllBouq());
+                    First first = new First();
+                    first.View();
                     break;
                 case 3:
-                    System.out.println(catFlower.showAllFloral());
-                    break;
-                case 4:
-                    System.out.println(catFlower.showAllPromotion());
-                    
+                    ViewUpdate viewUpdate = new ViewUpdate();
+                    viewUpdate.ViewUpdate();
+                    break;     
                 default:
                     System.out.println("\nPlease Re-enter your SELECTION!");
                     break;
@@ -62,5 +52,8 @@ public class First {
 
         } while (select > 1);
 
-        }
+        
+    
+    }
+    
 }

@@ -12,6 +12,7 @@ import java.util.Objects;
  * @author JianHao
  */
 public class Promotion {
+    private String promotion_id;
     private String promotion_month;
     private String product_type;
     private String product;
@@ -22,12 +23,21 @@ public class Promotion {
     
 }
 
-    public Promotion(String promotion_month, String product_type, String product, String discount, String promotion_status) {
+    public Promotion(String promotion_id, String promotion_month, String product_type, String product, String discount, String promotion_status) {
+        this.promotion_id = promotion_id;
         this.promotion_month = promotion_month;
         this.product_type = product_type;
         this.product = product;
         this.discount = discount;
         this.promotion_status = promotion_status;
+    }
+
+    public String getPromotion_id() {
+        return promotion_id;
+    }
+
+    public void setPromotion_id(String promotion_id) {
+        this.promotion_id = promotion_id;
     }
 
     public String getPromotion_month() {
@@ -73,11 +83,12 @@ public class Promotion {
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 29 * hash + Objects.hashCode(this.promotion_month);
-        hash = 29 * hash + Objects.hashCode(this.product_type);
-        hash = 29 * hash + Objects.hashCode(this.product);
-        hash = 29 * hash + Objects.hashCode(this.discount);
-        hash = 29 * hash + Objects.hashCode(this.promotion_status);
+        hash = 23 * hash + Objects.hashCode(this.promotion_id);
+        hash = 23 * hash + Objects.hashCode(this.promotion_month);
+        hash = 23 * hash + Objects.hashCode(this.product_type);
+        hash = 23 * hash + Objects.hashCode(this.product);
+        hash = 23 * hash + Objects.hashCode(this.discount);
+        hash = 23 * hash + Objects.hashCode(this.promotion_status);
         return hash;
     }
 
@@ -93,6 +104,9 @@ public class Promotion {
             return false;
         }
         final Promotion other = (Promotion) obj;
+        if (!Objects.equals(this.promotion_id, other.promotion_id)) {
+            return false;
+        }
         if (!Objects.equals(this.promotion_month, other.promotion_month)) {
             return false;
         }
@@ -111,9 +125,10 @@ public class Promotion {
         return true;
     }
 
+    
     @Override
     public String toString() {
-        return "\nPromotion_month = " + promotion_month +"\n"+ "Product Type = " + product_type +"\n" +"Product = " + product + "\n" +"Discount = " + discount +"\n" +"Promotion Status = " + promotion_status + "\n\n";
+        return "\nPromotion_id = "+promotion_id +"\n"+"Promotion_month = " + promotion_month +"\n"+ "Product Type = " + product_type +"\n" +"Product = " + product + "\n" +"Discount = " + discount +"\n" +"Promotion Status = " + promotion_status + "\n\n";
     }
     
     

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package domain;
-import da.CatalogDA;
+import da.CatalogFlowerDA;
 import java.util.Objects;
 
 /**
@@ -17,18 +17,30 @@ public class CatalogFlow{
         private String flower_name;
         private String flower_description;
         private String flower_price;
+        private String flower_quantity;
         private String flower_status;
 
           public CatalogFlow() {
     }
 
-    public CatalogFlow(String flower_id, String flower_name, String flower_description, String flower_price, String flower_status) {
+    public CatalogFlow(String flower_id, String flower_name, String flower_description, String flower_price, String flower_quantity, String flower_status) {
         this.flower_id = flower_id;
         this.flower_name = flower_name;
         this.flower_description = flower_description;
         this.flower_price = flower_price;
+        this.flower_quantity = flower_quantity;
         this.flower_status = flower_status;
     }
+    
+    public CatalogFlow(String flower_id, String flower_description, String flower_price, String flower_quantity, String flower_status){
+    
+        this.flower_id = flower_id;
+        this.flower_description = flower_description;
+        this.flower_price = flower_price;
+        this.flower_quantity = flower_quantity;
+        this.flower_status = flower_status;
+    }
+    
 
     public String getFlower_id() {
         return flower_id;
@@ -62,6 +74,14 @@ public class CatalogFlow{
         this.flower_price = flower_price;
     }
 
+    public String getFlower_quantity() {
+        return flower_quantity;
+    }
+
+    public void setFlower_quantity(String flower_quantity) {
+        this.flower_quantity = flower_quantity;
+    }
+
     public String getFlower_status() {
         return flower_status;
     }
@@ -73,11 +93,12 @@ public class CatalogFlow{
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 23 * hash + Objects.hashCode(this.flower_id);
-        hash = 23 * hash + Objects.hashCode(this.flower_name);
-        hash = 23 * hash + Objects.hashCode(this.flower_description);
-        hash = 23 * hash + Objects.hashCode(this.flower_price);
-        hash = 23 * hash + Objects.hashCode(this.flower_status);
+        hash = 37 * hash + Objects.hashCode(this.flower_id);
+        hash = 37 * hash + Objects.hashCode(this.flower_name);
+        hash = 37 * hash + Objects.hashCode(this.flower_description);
+        hash = 37 * hash + Objects.hashCode(this.flower_price);
+        hash = 37 * hash + Objects.hashCode(this.flower_quantity);
+        hash = 37 * hash + Objects.hashCode(this.flower_status);
         return hash;
     }
 
@@ -105,17 +126,21 @@ public class CatalogFlow{
         if (!Objects.equals(this.flower_price, other.flower_price)) {
             return false;
         }
+        if (!Objects.equals(this.flower_quantity, other.flower_quantity)) {
+            return false;
+        }
         if (!Objects.equals(this.flower_status, other.flower_status)) {
             return false;
         }
         return true;
     }
 
+  
    
 
     @Override
     public String toString() {
-        return "\n"+ "Flower ID = " + flower_id +  "\n" + "Flower Name = " + flower_name +  "\n"+"Flower Description = " + flower_description + "\n" +"Flower Price = " + flower_price+ "\n" +"Flower Status = " + flower_status + "\n\n" ;
+        return "\n"+ "Flower ID = " + flower_id +  "\n" + "Flower Name = " + flower_name +  "\n"+"Flower Description = " + flower_description + "\n" +"Flower Price = " + flower_price+ "\n"+"Flower Quantity = " + flower_quantity + "\n" +"Flower Status = " + flower_status + "\n\n" ;
     }
         
 

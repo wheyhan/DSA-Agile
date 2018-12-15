@@ -25,4 +25,10 @@ public interface CatalogInterface {
     void addRecord(CatalogBouq catalogBouq);
     void addRecord(Promotion promo);
     void addRecord(CatalogFloral catalogFloral);
+    void updateFlower(CatalogFlow catalogFlow);
+    CatalogFlow getFlower(String flower_id);
+    void updateBouquet(CatalogBouq catalogBouq);
+    CatalogBouq getBouq(String bouquets_id);
+    void updatePromo(Promotion promotion);
+    Promotion getPromo(String promotion);
 }
